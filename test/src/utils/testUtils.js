@@ -122,6 +122,9 @@ describe('test Utils', function() {
 
   it('isTsFile', function() {
     assert.strictEqual(Utils.isTsFile('/tests/sampleTest.ts'), true);
+    assert.strictEqual(Utils.isTsFile('/tests/sampleTest.cts'), true);
+    assert.strictEqual(Utils.isTsFile('/tests/sampleTest.mts'), true);
+    assert.strictEqual(Utils.isTsFile('/tests/sampleTest.tsx'), true);
     assert.strictEqual(Utils.isTsFile('/tests/sampleTest.js'), false);
     assert.strictEqual(Utils.isTsFile('/tests/sampleTest.json'), false);
     assert.strictEqual(Utils.isTsFile('/tests/sampleTest'), false);
@@ -129,7 +132,13 @@ describe('test Utils', function() {
 
   it('isFileNameValid', function() {
     assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.js'), true);
+    assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.cjs'), true);
+    assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.mjs'), true);
+    assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.jsx'), true);
     assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.ts'), true);
+    assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.mts'), true);
+    assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.cts'), true);
+    assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.tsx'), true);
     assert.strictEqual(Utils.isFileNameValid('/tests/sampleTest.json'), false);
   });
 
